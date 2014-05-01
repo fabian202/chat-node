@@ -1,0 +1,14 @@
+body {
+  padding-top: 60px;
+}
+
+#chat{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}

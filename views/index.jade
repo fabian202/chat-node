@@ -1,0 +1,54 @@
+extends layout
+block cabeza
+  script(src='/socket.io/socket.io.js')
+  script(src='http://code.jquery.com/jquery-1.7.min.js')
+  script(src='/js/main.js')  
+  script(src='/js/bootstrap.min.js')
+block content
+  div.navbar.navbar-fixed-top.navbar-inverse
+    div.navbar-inner
+      div.container#contenedor
+        a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        ul.nav
+          li.dropdown
+            a.dropdown-toggle(href="#",data-toggle="dropdown")
+              i.icon-user.icon-white
+              span.lblUser
+              b.caret     
+            ul.dropdown-menu
+              li
+                a.cerrarSession(href="#")                  
+                  | Cerrar Session     
+        div.nav-collapse.collapse
+          ul.nav
+            li.dropdown
+              a.dropdown-toggle(href="#",data-toggle="dropdown")
+                | Usuarios
+                b.caret
+              ul.dropdown-menu#menu-users                           
+  div.container.well
+    div#chat
+      div#chatInsite
+    form#formSend.form-search
+      div.input-append
+        input.input-xlarge#msg(type="text",placeholder="Escriba aqui parce")      
+        button.btn.btn-primary#btn(value="Enviar",type="submit")
+          i.icon-comment.icon-white
+    div#users
+    div.modal.hide.fade#myModal(style="width: 300px")
+      form#formUser
+        div.modal-header
+          | Nombre de Usuario
+        div.modal-body
+          div.alert.fade.in(style="display:none")          
+            button.close(data-dismiss="alert",type="button")
+              | ×
+            strong 
+              | Usuario invalido!!            
+            | El usuario ingresado ya esta en uso
+          input#userName(type="text")
+        div.modal-footer
+          input.btn.btn-primary(type="submit",value="Entrar")
